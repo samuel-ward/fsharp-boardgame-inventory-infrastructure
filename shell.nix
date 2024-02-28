@@ -1,7 +1,11 @@
 { pkgs ? import <nixpkgs> {} }:
-  pkgs.mkShell {
-    nativeBuildInputs = with pkgs.buildPackages; [
-      terraform
-      awscli
-    ];
+
+with pkgs;
+
+stdenv.mkDerivation {
+  name = "games-shelf-infra-shell";
+  buildInputs = [
+    awscli
+    terraform
+  ];
 }
