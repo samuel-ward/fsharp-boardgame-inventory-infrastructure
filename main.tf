@@ -31,8 +31,8 @@ terraform {
 resource "aws_dynamodb_table" "games-shelf-table" {
   name            = "games-shelf-${local.webapi_suffix}"
   billing_mode    = "PROVISIONED"
-  hash_key        = "partition_key"
-  range_key       = "sort_key"
+  hash_key        = "PartitionKey"
+  range_key       = "SortKey"
 
   read_capacity   = 1
   write_capacity  = 1
@@ -41,10 +41,10 @@ resource "aws_dynamodb_table" "games-shelf-table" {
     /*
     * This is dynamic and based on the "product" in question
     * The documentation repo has a class diagram that shows the different document types
-    * An example of the partition_key for game ranks is:
+    * An example of the PartitionKey for game ranks is:
     * "GAMERANK#BGG"
     */
-    name = "partition_key"
+    name = "PartitionKey"
     type = "S"
   }
 
@@ -52,11 +52,11 @@ resource "aws_dynamodb_table" "games-shelf-table" {
     /*
     * This is dynamic and based on both the "product" the document is a part of, and the "type" of document it is
     * The documentation repo has a class diagram that shows the different document types
-    * An example of the sort_key pattern, and an example for a sort_key, for game ranks is:
+    * An example of the SortKey pattern, and an example for a SortKey, for game ranks is:
     * "[GAME_NAME]#[BGG_ID]#GAME"
     * "CATAN#13#GAME"
     */
-    name = "sort_key"
+    name = "SortKey"
     type = "S"
   }
 }
