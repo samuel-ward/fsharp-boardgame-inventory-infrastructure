@@ -5,6 +5,8 @@ This repository is to manage the infrastructure of the Games Shelf application, 
 - Web App
 - Mobile App
 
+To see the documentation repository, and the other repositories connected to this project, please go to the [Games Shelf: Documentation Repository](https://github.com/samuel-ward/fsharp-boardgame-inventory-documentation)
+
 The primary tool being used to manage the infrastructure on AWS is Terraform.
 
 ## Dependencies
